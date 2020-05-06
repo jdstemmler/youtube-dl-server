@@ -1,0 +1,10 @@
+version: "3"
+services:
+    youtube-dl:
+        build: .
+        image: jdstemmler/youtube-dl-server:latest
+        volumes:
+        - /Users/jdstemmler/Repos/fun/youtube-dl-server/videos:/youtube-dl
+        restart: always
+        ports:
+        - "8080:8080"

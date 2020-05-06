@@ -17,10 +17,12 @@ app_defaults = {
     'YDL_EXTRACT_AUDIO_FORMAT': None,
     'YDL_EXTRACT_AUDIO_QUALITY': '192',
     'YDL_RECODE_VIDEO_FORMAT': None,
-    'YDL_OUTPUT_TEMPLATE': '/youtube-dl/%(title)s [%(id)s].%(ext)s',
-    'YDL_ARCHIVE_FILE': None,
+    'YDL_OUTPUT_TEMPLATE': '/youtube-dl/%(uploader)s/[%(upload_date)s] %(title)s.%(ext)s',
+    'YDL_ARCHIVE_FILE': '/youtube-dl/archive.txt',
     'YDL_SERVER_HOST': '0.0.0.0',
     'YDL_SERVER_PORT': 8080,
+    'YDL_WRITE_DESCRIPTION': True,
+    'YDL_WRITE_INFO': True
 }
 
 
@@ -107,7 +109,9 @@ def get_ydl_options(request_options):
         'format': ydl_vars['YDL_FORMAT'],
         'postprocessors': postprocessors,
         'outtmpl': ydl_vars['YDL_OUTPUT_TEMPLATE'],
-        'download_archive': ydl_vars['YDL_ARCHIVE_FILE']
+        'download_archive': ydl_vars['YDL_ARCHIVE_FILE'],
+        'writedescription': ydl_vars['YDL_WRITE_DESCRIPTION'],
+        'writeinfojson': ydl_vars['YDL_WRITE_INFO']
     }
 
 
